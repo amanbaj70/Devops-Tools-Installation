@@ -10,25 +10,22 @@
 
 ## Docker inatallation on Ubuntu 22.04
 
-## For non-Gnome Desktop environments, gnome-terminal must be installed:
-sudo apt install gnome-terminal
-
-## Uninstall the tech preview or beta version of Docker Desktop for Linux. Run:
-sudo apt remove docker-desktop
-
-## For a complete cleanup, remove configuration and data files at $HOME/.docker/desktop, the symlink at /usr/local/bin/com.docker.cli, and purge the remaining systemd service files.
-rm -r $HOME/.docker/desktop
-sudo rm /usr/local/bin/com.docker.cli
-sudo apt purge docker-desktop
-
-####### Install Docker Desktop
-
-## Install the package with apt as follows:
+sudo apt-get remove docker docker-engine docker.io containerd runc
 sudo apt-get update
-sudo apt-get install ./docker-desktop-<version>-<arch>.deb
+sudo apt-get install ca-certificates curl gnupg
 
-## Launch Docker Desktop
-systemctl --user start docker-desktop
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+  sudo apt-get update -y
+
+  sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 ## Version check:
 docker compose version
