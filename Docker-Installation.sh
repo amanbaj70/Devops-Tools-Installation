@@ -31,7 +31,3 @@ echo \
 docker compose version
 docker --version
 docker version
-
-# systemctl --user enable docker-desktop
-
-# systemctl --user stop docker-desktop
