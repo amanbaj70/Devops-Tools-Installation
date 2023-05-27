@@ -1,0 +1,13 @@
+vi /etc/default/jenkins
+
+HTTP_PORT="8081"   ## mention your port
+
+
+vi /usr/lib/systemd/system/jenkins.service
+
+JENKINS_PORT="8081"  ## mention your port
+
+
+systemctl daemon-reload
+
+systemctl restart jenkins.service
