@@ -27,6 +27,12 @@ echo \
 
   sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+sudo chmod -aG docker $USER
+newgrp docker
+sudo chmod 666 /var/run/docker.sock
+sudo systemctl restart docker
+sudo systemctl status docker
+
 ## Version check:
 docker compose version
 docker --version
