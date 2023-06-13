@@ -1,7 +1,11 @@
 #! /bin/bash
 
+# Reference Github Repos:
+# https://github.com/DeekshithSN/cheatsheet/blob/master/installtion_guide_ubuntu.md
+# https://github.com/jaiswaladi246/30-Days-Of-DevOps/blob/main/DAY-7.md
+
 ###############################
-#
+#  
 #
 #   Maintainer - Aman Bajpai
 #
